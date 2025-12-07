@@ -1129,12 +1129,12 @@ registerRight("Player", function(scroll)
     local header=Instance.new("TextLabel",scroll)
     header.Name="Section_FlightHeader"; header.BackgroundTransparency=1; header.Size=UDim2.new(1,0,0,36)
     header.Font=Enum.Font.GothamBold; header.TextSize=16; header.TextColor3=THEME.WHITE
-    header.TextXAlignment=Enum.TextXAlignment.Left; header.Text="》》》โหมดบิน 🧑‍✈️《《《"; header.LayoutOrder=nextOrder
+    header.TextXAlignment=Enum.TextXAlignment.Left; header.Text="》》》Chế độ bay 🧑‍✈️《《《"; header.LayoutOrder=nextOrder
 
     local row=Instance.new("Frame",scroll); row.Name="Row_FlightToggle"; row.Size=UDim2.new(1,-6,0,46)
     row.BackgroundColor3=THEME.BLACK; corner(row,12); stroke(row,2.2,THEME.GREEN); row.LayoutOrder=nextOrder+1
     local lab=Instance.new("TextLabel",row); lab.BackgroundTransparency=1; lab.Size=UDim2.new(1,-140,1,0); lab.Position=UDim2.new(0,16,0,0)
-    lab.Font=Enum.Font.GothamBold; lab.TextSize=13; lab.TextColor3=THEME.WHITE; lab.TextXAlignment=Enum.TextXAlignment.Left; lab.Text="ที่เปิด โหมดบิน"
+    lab.Font=Enum.Font.GothamBold; lab.TextSize=13; lab.TextColor3=THEME.WHITE; lab.TextXAlignment=Enum.TextXAlignment.Left; lab.Text="Bật chế độ bay"
 
     local sw=Instance.new("Frame",row); sw.AnchorPoint=Vector2.new(1,0.5); sw.Position=UDim2.new(1,-12,0.5,0)
     sw.Size=UDim2.fromOffset(52,26); sw.BackgroundColor3=THEME.BLACK; corner(sw,13)
@@ -1164,7 +1164,7 @@ registerRight("Player", function(scroll)
     local sRow=Instance.new("Frame",scroll); sRow.Name="Row_Sens"; sRow.Size=UDim2.new(1,-6,0,70)
     sRow.BackgroundColor3=THEME.BLACK; corner(sRow,12); stroke(sRow,2.2,THEME.GREEN); sRow.LayoutOrder=nextOrder+2
     local sLab=Instance.new("TextLabel",sRow); sLab.BackgroundTransparency=1; sLab.Position=UDim2.new(0,16,0,4)
-    sLab.Size=UDim2.new(1,-32,0,24); sLab.Font=Enum.Font.GothamBold; sLab.TextSize=13; sLab.TextColor3=THEME.WHITE; sLab.TextXAlignment=Enum.TextXAlignment.Left; sLab.Text="ปรับ ความไว"
+    sLab.Size=UDim2.new(1,-32,0,24); sLab.Font=Enum.Font.GothamBold; sLab.TextSize=13; sLab.TextColor3=THEME.WHITE; sLab.TextXAlignment=Enum.TextXAlignment.Left; sLab.Text="Điều chỉnh độ nhạy"
     local bar=Instance.new("Frame",sRow); bar.Position=UDim2.new(0,16,0,34); bar.Size=UDim2.new(1,-32,0,16)
     bar.BackgroundColor3=THEME.BLACK; corner(bar,8); stroke(bar,1.8,THEME.GREEN); bar.Active=true
     local fill=Instance.new("Frame",bar); fill.BackgroundColor3=THEME.GREEN; corner(fill,8); fill.Size=UDim2.fromScale(0,1)
@@ -1676,13 +1676,13 @@ registerRight("Player", function(scroll)
     header.BackgroundTransparency=1; header.Size=UDim2.new(1,0,0,32)
     header.Font=Enum.Font.GothamBold; header.TextSize=16; header.TextColor3=THEME.WHITE
     header.TextXAlignment=Enum.TextXAlignment.Left
-    header.Text="》》》โหมดความไว ⚡《《《"
+    header.Text="》》》Chế độ độ nhạy ⚡《《《"
 
     -- Master
     local master=Instance.new("Frame",scroll); master.Name="RJ_Master"; master.LayoutOrder=baseOrder+1
     master.Size=UDim2.new(1,-6,0,46); master.BackgroundColor3=THEME.BLACK; corner(master,12); stroke(master,2.2,THEME.GREEN)
     local mLab=Instance.new("TextLabel",master); mLab.BackgroundTransparency=1; mLab.Size=UDim2.new(1,-140,1,0); mLab.Position=UDim2.new(0,16,0,0)
-    mLab.Font=Enum.Font.GothamBold; mLab.TextSize=13; mLab.TextColor3=THEME.WHITE; mLab.TextXAlignment=Enum.TextXAlignment.Left; mLab.Text="เปิด โหมดความไว"
+    mLab.Font=Enum.Font.GothamBold; mLab.TextSize=13; mLab.TextColor3=THEME.WHITE; mLab.TextXAlignment=Enum.TextXAlignment.Left; mLab.Text="Bật chế độ độ nhạy"
     local mSw=Instance.new("Frame",master); mSw.AnchorPoint=Vector2.new(1,0.5); mSw.Position=UDim2.new(1,-12,0.5,0)
     mSw.Size=UDim2.fromOffset(52,26); mSw.BackgroundColor3=THEME.BLACK; corner(mSw,13); stroke(mSw,1.8, masterOn and THEME.GREEN or THEME.RED)
     local mKnob=Instance.new("Frame",mSw); mKnob.Size=UDim2.fromOffset(22,22); mKnob.Position=UDim2.new(masterOn and 1 or 0, masterOn and -24 or 2, 0.5,-11); mKnob.BackgroundColor3=THEME.WHITE; corner(mKnob,11)
@@ -1805,17 +1805,17 @@ registerRight("Player", function(scroll)
     end
 
     -- === Sliders in correct order: Run → Jump → Swim ===
-    buildSlider("RJ_Run",  baseOrder+2, "ปรับ การวิ่งไว",
+    buildSlider("RJ_Run",  baseOrder+2, "Điều chỉnh tốc độ chạy",
         function() return runRel end,
         function(r) runRel=math.clamp(r,0,1); RJ.remember.runRel=runRel; applyStats() end,
         "runRel")
 
-    buildSlider("RJ_Jump", baseOrder+3, "ปรับ กระโดด สูง",
+    buildSlider("RJ_Jump", baseOrder+3, "Điều chỉnh độ cao nhảy",
         function() return jumpRel end,
         function(r) jumpRel=math.clamp(r,0,1); RJ.remember.jumpRel=jumpRel; applyStats() end,
         "jumpRel")
 
-    buildSlider("RJ_Swim", baseOrder+4, "ปรับ ว่ายน้ำไว",
+    buildSlider("RJ_Swim", baseOrder+4, "Điều chỉnh tốc độ bơi",
         function() return swimRel end,
         function(r) swimRel=math.clamp(r,0,1); RJ.remember.swimRel=swimRel; applyStats() end,
         "swimRel")
@@ -1827,7 +1827,7 @@ registerRight("Player", function(scroll)
     noc.Size=UDim2.new(1,-6,0,46); noc.BackgroundColor3=THEME.BLACK; corner(noc,12); stroke(noc,2.2,THEME.GREEN)
     local nLab=Instance.new("TextLabel",noc); nLab.BackgroundTransparency=1; nLab.Size=UDim2.new(1,-140,1,0); nLab.Position=UDim2.new(0,16,0,0)
     nLab.Font=Enum.Font.GothamBold; nLab.TextSize=13; nLab.TextColor3=THEME.WHITE; nLab.TextXAlignment=Enum.TextXAlignment.Left
-    nLab.Text="ตัวละครทะลุทุกอย่าง"
+    nLab.Text="Chế độ đi xuyên vật thể"
     local nSw=Instance.new("Frame",noc); nSw.AnchorPoint=Vector2.new(1,0.5); nSw.Position=UDim2.new(1,-12,0.5,0)
     nSw.Size=UDim2.fromOffset(52,26); nSw.BackgroundColor3=THEME.BLACK; corner(nSw,13); stroke(nSw,1.8, noclipOn and THEME.GREEN or THEME.RED)
     local nKnob=Instance.new("Frame",nSw); nKnob.Size=UDim2.fromOffset(22,22); nKnob.Position=UDim2.new(noclipOn and 1 or 0, noclipOn and -24 or 2, 0.5,-11)
@@ -1854,7 +1854,7 @@ registerRight("Player", function(scroll)
     local inf=Instance.new("Frame",scroll); inf.Name="RJ_Inf"; inf.LayoutOrder=baseOrder+6
     inf.Size=UDim2.new(1,-6,0,46); inf.BackgroundColor3=THEME.BLACK; corner(inf,12); stroke(inf,2.2,THEME.GREEN)
     local iLab=Instance.new("TextLabel",inf); iLab.BackgroundTransparency=1; iLab.Size=UDim2.new(1,-140,1,0); iLab.Position=UDim2.new(0,16,0,0)
-    iLab.Font=Enum.Font.GothamBold; iLab.TextSize=13; iLab.TextColor3=THEME.WHITE; iLab.TextXAlignment=Enum.TextXAlignment.Left; iLab.Text="กระโดดไม่จำกัด"
+    iLab.Font=Enum.Font.GothamBold; iLab.TextSize=13; iLab.TextColor3=THEME.WHITE; iLab.TextXAlignment=Enum.TextXAlignment.Left; iLab.Text="Nhảy vô hạn"
     local iSw=Instance.new("Frame",inf); iSw.AnchorPoint=Vector2.new(1,0.5); iSw.Position=UDim2.new(1,-12,0.5,0)
     iSw.Size=UDim2.fromOffset(52,26); iSw.BackgroundColor3=THEME.BLACK; corner(iSw,13); stroke(iSw,1.8, infJumpOn and THEME.GREEN or THEME.RED)
     local iKnob=Instance.new("Frame",iSw); iKnob.Size=UDim2.fromOffset(22,22); iKnob.Position=UDim2.new(infJumpOn and 1 or 0, infJumpOn and -24 or 2, 0.5,-11)
@@ -2763,7 +2763,7 @@ registerRight("Player", function(scroll)
     header.TextSize = 16
     header.TextColor3 = THEME.TEXT
     header.TextXAlignment = Enum.TextXAlignment.Left
-    header.Text = "》》》โหมด มองทะลุ 👁️《《《"
+    header.Text = "》》》Chế độ nhìn xuyên 👁️《《《"
     header.LayoutOrder = base + 1
 
     local function makeRow(name, order, labelText, getState, setState)
@@ -2826,7 +2826,7 @@ registerRight("Player", function(scroll)
     makeRow(
         "XRAY_Row1",
         base + 2,
-        "เปิด เห็นผู้เล่นทะลุกำแพง)",
+        "Bật nhìn người chơi xuyên tường)",
         function() return XR.xrayEnabled end,
         setXrayEnabled
     )
@@ -2834,7 +2834,7 @@ registerRight("Player", function(scroll)
     makeRow(
         "XRAY_Row2",
         base + 3,
-        "เปิด เส้นที่เท้า + กล่องระบุตำแหน่ง",
+        "Bật đường chân + hộp định vị",
         function() return XR.feetEnabled end,
         setFeetEnabled
     )
@@ -2842,7 +2842,7 @@ registerRight("Player", function(scroll)
     makeRow(
         "XRAY_Row3",
         base + 4,
-        "เปิด แสดงชื่อผู้เล่นเหนือศีรษะ",
+        "Bật hiển thị tên người chơi trên đầu",
         function() return XR.namesEnabled end,
         setNamesEnabled
     )
@@ -2850,7 +2850,7 @@ registerRight("Player", function(scroll)
     makeRow(
         "XRAY_Row4",
         base + 5,
-        "เปิด แสดงเลือดผู้เล่น",
+        "Bật hiển thị máu của người chơi",
         function() return XR.healthEnabled end,
         setHealthEnabled
     )
@@ -2858,7 +2858,7 @@ registerRight("Player", function(scroll)
     makeRow(
         "XRAY_Row5",
         base + 6,
-        "เปิด แสดง ระยะห่างผู้เล่น",
+        "Bật hiển thị khoảng cách của người chơi",
         function() return XR.distanceEnabled end,
         setDistanceEnabled
     )
@@ -3182,7 +3182,7 @@ registerRight("Player", function(scroll)
     header.TextSize = 16
     header.TextColor3 = THEME.TEXT
     header.TextXAlignment = Enum.TextXAlignment.Left
-    header.Text = "》》》วาร์ปไปหาผู้เล่น 🌀《《《"
+    header.Text = "》》》Dịch chuyển đến người chơi 🌀《《《"
     header.LayoutOrder = base + 1
 
     local function makeRow(name, order, labelText)
@@ -3213,7 +3213,7 @@ registerRight("Player", function(scroll)
     -- Row 1 : A V2 เต็มระบบ + Overlay เลือกผู้เล่น
     ------------------------------------------------------------------------
     local panelParent = scroll.Parent
-    local row1 = makeRow("WARP_Row1", base + 2, "เลือกเป้าหมายผู้เล่น")
+    local row1 = makeRow("WARP_Row1", base + 2, "Chọn người chơi mục tiêu")
 
     local selectBtn = Instance.new("TextButton")
     selectBtn.Name = "WARP_Select"
@@ -3223,7 +3223,7 @@ registerRight("Player", function(scroll)
     selectBtn.Size = UDim2.new(0,220,0,28)
     selectBtn.BackgroundColor3 = THEME.BLACK
     selectBtn.AutoButtonColor = false
-    selectBtn.Text = "🔎 ค้นหา ชื่อผู้เล่น"
+    selectBtn.Text = "🔎 Tìm tên người chơi"
     selectBtn.Font = Enum.Font.GothamBold
     selectBtn.TextSize = 13
     selectBtn.TextColor3 = THEME.WHITE
@@ -3268,7 +3268,7 @@ registerRight("Player", function(scroll)
             local display = (pl.DisplayName ~= "" and pl.DisplayName) or pl.Name
             selectBtn.Text = display
         else
-            selectBtn.Text = "🔎 ค้นหา ชื่อผู้เล่น"
+            selectBtn.Text = "🔎 Tìm tên người chơi"
         end
     end
     refreshSelectedLabel()
@@ -3343,7 +3343,7 @@ registerRight("Player", function(scroll)
         searchBox.Font = Enum.Font.GothamBold
         searchBox.TextSize = 14
         searchBox.TextColor3 = THEME.WHITE
-        searchBox.PlaceholderText = "🔎 ค้นหา ชื่อผู้เล่น"
+        searchBox.PlaceholderText = "🔎 Tìm tên người chơi"
         searchBox.TextXAlignment = Enum.TextXAlignment.Center
         searchBox.Text = ""
         searchBox.ZIndex = body.ZIndex + 1
@@ -3631,7 +3631,7 @@ registerRight("Player", function(scroll)
     row2Switch = makeSwitchRow(
         "WARP_Row2",
         base + 3,
-        "วาร์ปไปหาผู้เล่นทันที",
+        "Dịch chuyển ngay đến người chơi",
         function() return WARP.mode == "warp" end,
         function(on)
             if on then
@@ -3651,7 +3651,7 @@ registerRight("Player", function(scroll)
     row3Switch = makeSwitchRow(
         "WARP_Row3",
         base + 4,
-        "บินไปหาผู้เล่น",
+        "Bay đến người chơi",
         function() return WARP.mode == "fly" end,
         function(on)
             if on then
@@ -3690,7 +3690,7 @@ registerRight("Player", function(scroll)
     startLabel.Font = Enum.Font.GothamBold
     startLabel.TextSize = 14
     startLabel.TextColor3 = THEME.WHITE
-    startLabel.Text = "เริ่ม"
+    startLabel.Text = "Bắt đầu"
     startLabel.TextXAlignment = Enum.TextXAlignment.Center
 
     local startBtn = Instance.new("TextButton")
@@ -3740,7 +3740,7 @@ registerRight("Update", function(scroll)
     local head = Instance.new("TextLabel",scroll)
     head.Name="UP_Header"; head.LayoutOrder=base; head.BackgroundTransparency=1; head.Size=UDim2.new(1,0,0,32)
     head.Font=Enum.Font.GothamBlack; head.TextSize=16; head.TextColor3=THEME.WHITE; head.TextXAlignment=Enum.TextXAlignment.Left
-    head.Text="》》》อัปเดต เกม 🗺️《《《"
+    head.Text="》》》Cập nhật game 🗺️《《《"
 
     -- wrap
     local wrap = Instance.new("Frame",scroll)
@@ -3932,7 +3932,7 @@ registerRight("Update", function(scroll)
     head.TextSize = 16
     head.TextColor3 = THEME.TEXT
     head.TextXAlignment = Enum.TextXAlignment.Left
-    head.Text = "》》》อัปเดตโซเชียล UFO HUB X 📣《《《"
+    head.Text = "》》》Cập nhật xã hội UFO HUB X 📣《《《"
     head.LayoutOrder = base; base += 1
 
     -- press effect util (darken briefly)
@@ -3991,10 +3991,10 @@ registerRight("Update", function(scroll)
             if item.link ~= "" then
                 local ok=false
                 if typeof(setclipboard)=="function" then ok = pcall(function() setclipboard(item.link) end) end
-                QuickToast(item.label .. " — คัดลอกลิงก์แล้ว ✅")
-                if not ok then print("[UFO HUB X] ไม่สามารถใช้คลิปบอร์ดได้; ลิงก์: "..item.link) end
+                QuickToast(item.label .. " — Đã sao chép liên kết ✅")
+                if not ok then print("[UFO HUB X] Không thể sử dụng clipboard; liên kết: "..item.link) end
             else
-                QuickToast(item.label .. " — ไม่มีลิงก์")
+                QuickToast(item.label .. " — Không có liên kết")
             end
         end)
     end
@@ -4033,7 +4033,7 @@ registerRight("Server", function(scroll)
     local head = scroll:FindFirstChild("SV_Header") or Instance.new("TextLabel", scroll)
     head.Name="SV_Header"; head.BackgroundTransparency=1; head.Size=UDim2.new(1,0,0,36)
     head.Font=Enum.Font.GothamBold; head.TextSize=16; head.TextColor3=THEME.TEXT
-    head.TextXAlignment=Enum.TextXAlignment.Left; head.Text="》》》เซิร์ฟเวอร์ 🌐《《《"; head.LayoutOrder = 10
+    head.TextXAlignment=Enum.TextXAlignment.Left; head.Text="》》》Máy chủ 🌐《《《"; head.LayoutOrder = 10
 
     -- Clear same-name rows (A V1 rule, no wrappers)
     for _,n in ipairs({"S1_Change","S2_PlayerCount"}) do local o=scroll:FindFirstChild(n) if o then o:Destroy() end end
@@ -4055,7 +4055,7 @@ registerRight("Server", function(scroll)
     ----------------------------------------------------------------
     -- (#1) Change Server — one-tap button (no toggle)
     ----------------------------------------------------------------
-    local r1 = makeRow("S1_Change", "เปลี่ยนเซิร์ฟเวอร์", 11)
+    local r1 = makeRow("S1_Change", "Thay đổi máy chủ", 11)
     local btnWrap = Instance.new("Frame", r1)
     btnWrap.AnchorPoint=Vector2.new(1,0.5); btnWrap.Position=UDim2.new(1,-12,0.5,0)
     btnWrap.Size=UDim2.fromOffset(110,28); btnWrap.BackgroundColor3=THEME.BLACK; corner(btnWrap,8); stroke(btnWrap,1.8,THEME.GREEN)
@@ -4063,12 +4063,12 @@ registerRight("Server", function(scroll)
     local btn = Instance.new("TextButton", btnWrap)
     btn.BackgroundTransparency=1; btn.Size=UDim2.fromScale(1,1)
     btn.Font=Enum.Font.GothamBold; btn.TextSize=13; btn.TextColor3=THEME.TEXT
-    btn.Text="เปลี่ยน เซิร์ฟเวอร์ "
+    btn.Text="Thay đổi máy chủ "
 
     local busy=false
     local function setBusy(v)
         busy=v
-        btn.Text = v and "กำลังย้าย เซิร์ฟเวอร์ ..." or "เปลี่ยน เซิร์ฟเวอร์"
+        btn.Text = v and "Đang chuyển máy chủ ..." or "Thay đổi máy chủ"
         local st = btnWrap:FindFirstChildOfClass("UIStroke")
         if st then st.Color = v and THEME.GREY or THEME.GREEN end
     end
@@ -4114,7 +4114,7 @@ registerRight("Server", function(scroll)
                     TeleportService:TeleportToPlaceInstance(game.PlaceId, targetJob, lp)
                 end)
                 if not ok then
-                    warn("ยาย เซิร์ฟเวอร์ ไม่สำเร็จ ❌:", tpErr)
+                    warn("Chuyển máy chủ không thành công ❌:", tpErr)
                     TeleportService:Teleport(game.PlaceId, lp) -- fallback (may land same server)
                 end
             else
@@ -4131,7 +4131,7 @@ registerRight("Server", function(scroll)
     ----------------------------------------------------------------
     -- (#2) Live player count — real-time
     ----------------------------------------------------------------
-    local r2 = makeRow("S2_PlayerCount", "ผู้เล่นในเซิร์ฟเวอร์นี้", 12)
+    local r2 = makeRow("S2_PlayerCount", "Người chơi trong máy chủ này", 12)
 
     local countBox = Instance.new("Frame", r2)
     countBox.AnchorPoint=Vector2.new(1,0.5); countBox.Position=UDim2.new(1,-12,0.5,0)
@@ -4240,7 +4240,7 @@ registerRight("Server", function(scroll)
         local head = Instance.new("TextLabel", scroll)
         head.Name="SID_Header"; head.BackgroundTransparency=1; head.Size=UDim2.new(1,0,0,36)
         head.Font=Enum.Font.GothamBold; head.TextSize=16; head.TextColor3=THEME.TEXT
-        head.TextXAlignment=Enum.TextXAlignment.Left; head.Text="》》》รหัสเซิร์ฟเวอร์ 🔑《《《"
+        head.TextXAlignment=Enum.TextXAlignment.Left; head.Text="》》》Mã máy chủ 🔑《《《"
         head.LayoutOrder = 2000
     end
 
@@ -4276,7 +4276,7 @@ registerRight("Server", function(scroll)
         tb.Font=Enum.Font.Gotham; tb.TextSize=13; tb.TextColor3=THEME.WHITE
         tb.ClearTextOnFocus=false
         tb.Text = ""
-        tb.PlaceholderText = placeholder or "วาง JobId / ลิงก์ VIP / ลิงก์ roblox://…"
+        tb.PlaceholderText = placeholder or "Dán JobId / liên kết VIP / liên kết roblox://…"
         tb.PlaceholderColor3 = Color3.fromRGB(180,180,185)
         tb.TextXAlignment = Enum.TextXAlignment.Left
         return tb
@@ -4297,27 +4297,27 @@ registerRight("Server", function(scroll)
             local jobId = deep_job or plain_job
             return { mode="public", placeId = tonumber(deep_place) or game.PlaceId, jobId = jobId }
         else
-            return nil, "ข้อมูลไม่ถูกต้อง กรุณาวาง JobId หรือ ลิงก์ VIP (privateServerLinkCode)=...), or a roblox:// link."
+            return nil, "Dữ liệu không hợp lệ. Vui lòng dán JobId hoặc liên kết VIP (privateServerLinkCode)=...), or a roblox:// link."
         end
     end
 
-    local inputRow = makeRow("SID_Input", "ที่ใส่รหัส เซิร์ฟเวอร์ ", 2001)
+    local inputRow = makeRow("SID_Input", "Khung nhập mã máy chủ ", 2001)
     local inputBox = inputRow:FindFirstChildWhichIsA("Frame") and inputRow:FindFirstChildWhichIsA("Frame"):FindFirstChildOfClass("TextBox")
     if not inputBox then
-        inputBox = makeRightInput(inputRow, "เช่น JobId หรือ ลิงก์ VIP หรือ roblox://…")
+        inputBox = makeRightInput(inputRow, "Ví dụ: JobId, liên kết VIP hoặc liên kết roblox://…")
     else
         if inputBox.Text == "TextBox" then inputBox.Text = "" end
     end
 
-    local joinRow = makeRow("SID_Join", "เข้าร่วมผ่านเซิร์ฟเวอร์นี้", 2002)
+    local joinRow = makeRow("SID_Join", "Tham gia bằng máy chủ này", 2002)
     if not joinRow:FindFirstChildOfClass("TextButton") then
-        local joinBtn = makeActionButton(joinRow, "เข้าร่วม")
+        local joinBtn = makeActionButton(joinRow, "Tham gia")
         joinBtn.MouseButton1Click:Connect(function()
             local raw = inputBox.Text or ""
             local target, err = parseInputToTeleport(raw)
             if not target then QuickToast(err); return end
             if target.mode=="public" and tostring(target.jobId)==tostring(game.JobId) then
-                QuickToast("คุณอยู่ในเซิร์ฟเวอร์นี้อยู่แล้ว"); return
+                QuickToast("Bạn đang ở trong máy chủ này rồi"); return
             end
             local ok, msg = false, nil
             if target.mode=="private" then
@@ -4326,22 +4326,22 @@ registerRight("Server", function(scroll)
                 ok, msg = pcall(function() TeleportService:TeleportToPlaceInstance(target.placeId, target.jobId, lp) end)
             end
             if not ok then
-                QuickToast("ย้าย เซิร์ฟเวอร์ ไม่สำเร็จ ❌: "..tostring(msg))
+                QuickToast("Chuyển máy chủ không thành công ❌: "..tostring(msg))
             else
-                local tip = (target.mode=="private") and ("รหัสส่วนตัว: "..string.sub(target.code,1,6).."…")
-                                                   or  ("รหัสเซิร์ฟเวอร์เฉพาะ (JobId): "..string.sub(target.jobId,1,8).."…")
-                QuickToast("กำลังย้าย เซิร์ฟเวอร์…  "..tip)
+                local tip = (target.mode=="private") and ("Mã riêng tư: "..string.sub(target.code,1,6).."…")
+                                                   or  ("Mã máy chủ duy nhất (JobId): "..string.sub(target.jobId,1,8).."…")
+                QuickToast("Đang chuyển máy chủ…  "..tip)
             end
         end)
     end
 
-    local copyRow = makeRow("SID_Copy", "คัดลอกรหัสเซิร์ฟเวอร์ปัจจุบัน", 2003)
+    local copyRow = makeRow("SID_Copy", "Sao chép mã máy chủ hiện tại", 2003)
     if not copyRow:FindFirstChildOfClass("TextButton") then
-        local copyBtn = makeActionButton(copyRow, "คัดลอก รหัส")
+        local copyBtn = makeActionButton(copyRow, "Sao chép mã")
         copyBtn.MouseButton1Click:Connect(function()
             local id = tostring(game.JobId or "")
             local ok = pcall(function() setclipboard(id) end)
-            if ok then QuickToast("คัดลอก รหัส เซิร์ฟเวอร์ แล้ว ✅") else QuickToast("รหัสเซิร์ฟเวอร์ปัจจุบัน: "..id) end
+            if ok then QuickToast("Đã sao chép mã máy chủ ✅") else QuickToast("Mã máy chủ hiện tại: "..id) end
             if inputBox and id~="" then inputBox.Text = id end
         end)
     end
@@ -4425,7 +4425,7 @@ registerRight("Settings", function(scroll)
     local head = scroll:FindFirstChild("A1_Header") or Instance.new("TextLabel", scroll)
     head.Name="A1_Header"; head.BackgroundTransparency=1; head.Size=UDim2.new(1,0,0,36)
     head.Font=Enum.Font.GothamBold; head.TextSize=16; head.TextColor3=THEME.TEXT
-    head.TextXAlignment=Enum.TextXAlignment.Left; head.Text="》》》ตั้งค่าความลื่น 🚀《《《"; head.LayoutOrder = 10
+    head.TextXAlignment=Enum.TextXAlignment.Left; head.Text="》》》Cài đặt độ mượt 🚀《《《"; head.LayoutOrder = 10
 
     -- Remove any old rows
     for _,n in ipairs({"A1_Reduce","A1_Remove","A1_Plastic"}) do local old=scroll:FindFirstChild(n); if old then old:Destroy() end end
@@ -4526,7 +4526,7 @@ registerRight("Settings", function(scroll)
     -- ===== 3 switches (fixed orders 11/12/13) + SAVE =====
     local set50, set100, setPl
 
-    set50  = makeRow("A1_Reduce", "ลดเอฟเฟกต์ 50%", 11, function(v)
+    set50  = makeRow("A1_Reduce", "Giảm hiệu ứng 50%", 11, function(v)
         if v then
             S.mode=1; applyHalf()
             if set100 then set100(false) end
@@ -4536,7 +4536,7 @@ registerRight("Settings", function(scroll)
         setSave("Settings.Smoother.Mode", S.mode)
     end)
 
-    set100 = makeRow("A1_Remove", "ลบเอฟเฟกต์ทั้งหมด 100%", 12, function(v)
+    set100 = makeRow("A1_Remove", "Xóa tất cả hiệu ứng 100%", 12, function(v)
         if v then
             S.mode=2; applyOff()
             if set50 then set50(false) end
@@ -4546,7 +4546,7 @@ registerRight("Settings", function(scroll)
         setSave("Settings.Smoother.Mode", S.mode)
     end)
 
-    setPl   = makeRow("A1_Plastic","เปลี่ยนแมพ เป็นดินน้ำมัน)", 13, function(v)
+    setPl   = makeRow("A1_Plastic","Chuyển bản đồ sang chất liệu nhựa", 13, function(v)
         S.plastic=v; plasticMode(v)
         setSave("Settings.Smoother.Plastic", v)
     end)
@@ -5000,7 +5000,7 @@ registerRight("Settings", function(scroll)
     header.TextSize = 16
     header.TextColor3 = THEME.TEXT
     header.TextXAlignment = Enum.TextXAlignment.Left
-    header.Text = "》》》เอเอฟเค 💤《《《"
+    header.Text = "》》》AFK 💤《《《"
     header.LayoutOrder = nextOrder
 
     -- Row helper (เหมือนโค้ดเดิม)
@@ -5060,7 +5060,7 @@ registerRight("Settings", function(scroll)
     end
 
     -- ===== Rows + bindings (ใช้ STATE เดิม + SAVE + CORE) =====
-    local setBlack = makeRow("หน้าจอดำ (โหมดประหยัดระหว่าง เอเอฟเค)", S.blackOn, function(v)
+    local setBlack = makeRow("Màn hình đen (chế độ tiết kiệm trong lúc AFK)", S.blackOn, function(v)
         S.blackOn = v
         if v then S.whiteOn = false end
         syncOverlays()
@@ -5070,7 +5070,7 @@ registerRight("Settings", function(scroll)
         end
     end)
 
-    local setWhite = makeRow("หน้าจอขาว (โหมดประหยัดระหว่าง เอเอฟเค)", S.whiteOn, function(v)
+    local setWhite = makeRow("Màn hình trắng (chế độ tiết kiệm trong lúc AFK)", S.whiteOn, function(v)
         S.whiteOn = v
         if v then S.blackOn = false end
         syncOverlays()
@@ -5080,7 +5080,7 @@ registerRight("Settings", function(scroll)
         end
     end)
 
-    local setAnti  = makeRow("กันเตะตอน เอเอฟเค (20 นาที)", S.antiIdleOn, function(v)
+    local setAnti  = makeRow("Chống đá khi AFK (20 phút)", S.antiIdleOn, function(v)
         S.antiIdleOn = v
         setSave("Settings.AFK.AntiKick", v)
         if v then
@@ -5088,7 +5088,7 @@ registerRight("Settings", function(scroll)
         end
     end)
 
-    local setWatch = makeRow("ตัวเฝ้ากิจกรรม (5 นาที → เปิดใช้งานข้อ 3)", S.watcherOn, function(v)
+    local setWatch = makeRow("Trình theo dõi hoạt động (5 phút → bật mục số 3)", S.watcherOn, function(v)
         S.watcherOn = v
         setSave("Settings.AFK.Watcher", v)
         -- watcher loop จะเช็ค S.watcherOn อยู่แล้ว
@@ -5276,7 +5276,7 @@ do
     local box1 = buildBox(gui1)
     buildLogo(box1, LOGO_STEP1)
     buildTitle(box1)
-    local msg1 = buildMsg(box1, "กำลังเริ่มต้นระบบ... โปรดรอ")
+    local msg1 = buildMsg(box1, "Đang khởi động hệ thống... Vui lòng chờ")
 
     local barWidth = TOAST_W - BAR_LEFT - BAR_RIGHT_PAD
     local track = Instance.new("Frame"); track.BackgroundColor3 = Color3.fromRGB(25,25,25); track.BorderSizePixel = 0
@@ -5307,7 +5307,7 @@ do
             pct.Text = progress .. "%"
             RunS.Heartbeat:Wait()
         end
-        msg1.Text = "โหลดสำเร็จแล้ว."
+        msg1.Text = "Tải thành công"
         task.wait(0.25)
         local out1 = tween(box1, 0.32, Enum.EasingStyle.Quint, Enum.EasingDirection.InOut,
             {Position = UDim2.new(1, -EDGE_RIGHT_PAD, 1, -(EDGE_BOTTOM_PAD - 24))})
@@ -5318,7 +5318,7 @@ do
         local box2 = buildBox(gui2)
         buildLogo(box2, LOGO_STEP2)
         buildTitle(box2)
-        buildMsg(box2, "ดาวน์โหลด UI เสร็จสมบูรณ์ ✅")
+        buildMsg(box2, "Tải UI hoàn tất ✅")
         tween(box2, 0.22, Enum.EasingStyle.Quart, Enum.EasingDirection.Out,
             {Position = UDim2.new(1, -EDGE_RIGHT_PAD, 1, -EDGE_BOTTOM_PAD)}):Play()
 
