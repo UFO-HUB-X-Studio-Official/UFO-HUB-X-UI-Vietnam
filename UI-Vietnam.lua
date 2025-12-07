@@ -547,13 +547,13 @@ local function makeTabButton(parent, label, iconId)
     return b, setActive
 end
 
-local btnPlayer,  setPlayerActive   = makeTabButton(LeftScroll, "ผู้เล่น",  ICON_PLAYER)
-local btnHome,    setHomeActive     = makeTabButton(LeftScroll, "หน้าหลัก",    ICON_HOME)
-local btnQuest,   setQuestActive    = makeTabButton(LeftScroll, "ภารกิจ",   ICON_QUEST)
-local btnShop,    setShopActive     = makeTabButton(LeftScroll, "ร้านค้า",    ICON_SHOP)
-local btnUpdate,  setUpdateActive   = makeTabButton(LeftScroll, "อัปเดต",  ICON_UPDATE)
-local btnServer,  setServerActive   = makeTabButton(LeftScroll, "เซิร์ฟเวอร์",  ICON_SERVER)
-local btnSettings,setSettingsActive = makeTabButton(LeftScroll, "การตั้งค่า",ICON_SETTINGS)
+local btnPlayer,  setPlayerActive   = makeTabButton(LeftScroll, "Người chơi",  ICON_PLAYER)
+local btnHome,    setHomeActive     = makeTabButton(LeftScroll, "Trang chủ",    ICON_HOME)
+local btnQuest,   setQuestActive    = makeTabButton(LeftScroll, "Nhiệm vụ",   ICON_QUEST)
+local btnShop,    setShopActive     = makeTabButton(LeftScroll, "Cửa hàng",    ICON_SHOP)
+local btnUpdate,  setUpdateActive   = makeTabButton(LeftScroll, "Cập nhật",  ICON_UPDATE)
+local btnServer,  setServerActive   = makeTabButton(LeftScroll, "Máy chủ",  ICON_SERVER)
+local btnSettings,setSettingsActive = makeTabButton(LeftScroll, "Cài đặt",ICON_SETTINGS)
 
 -- ========== RIGHT ==========
 local RightShell=Instance.new("Frame",Body)
@@ -685,13 +685,13 @@ end
 
 -- map ชื่อแท็บ (key ภาษาอังกฤษด้านใน) -> หัวข้อภาษาไทยที่โชว์
 local TAB_TITLE_TH = {
-    Player   = "ผู้เล่น",
-    Home     = "หน้าหลัก",
-    Quest    = "ภารกิจ",
-    Shop     = "ร้านค้า",
-    Update   = "อัปเดต",
-    Server   = "เซิร์ฟเวอร์",
-    Settings = "การตั้งค่า",
+    Player   = "Người chơi",
+    Home     = "Trang chủ",
+    Quest    = "Nhiệm vụ",
+    Shop     = "Cửa hàng",
+    Update   = "Cập nhật",
+    Server   = "Máy chủ",
+    Settings = "Cài đặt",
 }
 
 function showRight(tabKey, iconId)
