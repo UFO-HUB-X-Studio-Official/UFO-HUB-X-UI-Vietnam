@@ -4301,7 +4301,7 @@ registerRight("Server", function(scroll)
         end
     end
 
-    local inputRow = makeRow("SID_Input", "Khung nhập mã máy chủ ", 2001)
+    local inputRow = makeRow("SID_Input", "Mã server ", 2001)
     local inputBox = inputRow:FindFirstChildWhichIsA("Frame") and inputRow:FindFirstChildWhichIsA("Frame"):FindFirstChildOfClass("TextBox")
     if not inputBox then
         inputBox = makeRightInput(inputRow, "Ví dụ: JobId, liên kết VIP hoặc liên kết roblox://…")
